@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ProductWeb.Models.CustomerDto>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>Customer List</h1>
+<p>
+    <a asp-action="Create">Create new customer</a>
+</p>
+<table class="table">
+
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.FirstOrDefault().CustomerId)</td>
+
+        <td>@Html.DisplayNameFor(model => model.FirstOrDefault().ProductId)</td>
+
+        <td>@Html.DisplayNameFor(model => model.FirstOrDefault().EmployerId)</td>
+
+        <td>@Html.DisplayNameFor(model => model.FirstOrDefault().Name)</td>
+
+        <td>@Html.DisplayNameFor(model => model.FirstOrDefault().RFC)</td>
+
+        <td>@Html.DisplayNameFor(model => model.FirstOrDefault().Email)</td>
+        <td></td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.CustomerId)</td>
+        
+            <td>@Html.DisplayFor(modelItem => item.ProductId)</td>
+       
+            <td>@Html.DisplayFor(modelItem => item.EmployerId)</td>
+       
+            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+       
+            <td>@Html.DisplayFor(modelItem => item.RFC)</td>
+      
+            <td>@Html.DisplayFor(modelItem => item.Email)</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CustomerId">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.CustomerId">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.CustomerId">Delete</a>
+            </td>
+        </tr>
+
+    }
+
+</table>
